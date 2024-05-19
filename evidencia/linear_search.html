@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<pre>
+<span class="comment">//</span>
+<span class="comment">//  main.cpp</span>
+<span class="comment">//  Busqueda Lineal</span>
+<span class="comment">//</span>
+<span class="comment">//  Created by Remy Patgher on 25/10/23.</span>
+<span class="comment">//</span>
+
+#include <span class="comparison"><</span>iostream<span class="comparison">></span>
+#include <span class="comparison"><</span>stdlib.h<span class="comparison">></span>
+
+using namespace std<span class="delimiter">;</span>
+
+class LinearSearch<span class="delimiter">{</span>
+<span class="identifier">private</span>:
+    int n; <span class="comment">// Size of the list</span>
+    int <span class="operator">*</span>list<span class="delimiter">;</span>
+    
+<span class="identifier">public</span>:
+    LinearSearch<span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        srand<span class="delimiter">(</span><span class="delimiter">(</span>unsigned int<span class="delimiter">)</span>time<span class="delimiter">(</span>NULL<span class="delimiter">)</span><span class="delimiter">)</span><span class="delimiter">;</span>
+        cout <span class="comparison"><</span><span class="comparison"><</span> "Enter the size of the List: "; cin <span class="comparison">></span><span class="comparison">></span> n<span class="delimiter">;</span>
+        list <span class="assignment">=</span> new int[n]<span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    void ran<span class="reserved">do</span>m_list<span class="delimiter">(</span>int minNum<span class="delimiter">,</span> int maxNum<span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">for</span>(int i = 0; i < n; i<span class="operator">+</span><span class="operator">+</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            list[i] = rand() <span class="operator">%</span> maxNum <span class="operator">+</span> minNum<span class="delimiter">;</span>
+        <span class="delimiter">}</span>
+    <span class="delimiter">}</span>
+    
+    void set_list<span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        cout <span class="comparison"><</span><span class="comparison"><</span> endl<span class="delimiter">;</span>
+        <span class="reserved">for</span>(int i = 0; i < n; i<span class="operator">+</span><span class="operator">+</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            cout << "Enter the number " << i<span class="operator">+</span>1 <span class="comparison"><</span><span class="comparison"><</span> " of the list: "; cin <span class="comparison">></span><span class="comparison">></span> list[i]<span class="delimiter">;</span>
+        <span class="delimiter">}</span>
+    <span class="delimiter">}</span>
+    
+    void print_list<span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        cout <span class="comparison"><</span><span class="comparison"><</span> endl<span class="delimiter">;</span>
+        <span class="reserved">for</span>(int i = 0; i < n; i<span class="operator">+</span><span class="operator">+</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            cout <span class="comparison"><</span><span class="comparison"><</span> list[i] <span class="comparison"><</span><span class="comparison"><</span> "\t"<span class="delimiter">;</span>
+        <span class="delimiter">}</span>
+        cout <span class="comparison"><</span><span class="comparison"><</span> endl <span class="comparison"><</span><span class="comparison"><</span> endl<span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    void search_num<span class="delimiter">(</span>int num<span class="delimiter">)</span><span class="delimiter">{</span>
+        cout <span class="comparison"><</span><span class="comparison"><</span> endl<span class="delimiter">;</span>
+        <span class="reserved">for</span>(int i = 0; i < n; i<span class="operator">+</span><span class="operator">+</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            <span class="reserved">if</span>(list[i] <span class="comparison">==</span> num<span class="delimiter">)</span><span class="delimiter">{</span>
+                cout <span class="comparison"><</span><span class="comparison"><</span> "The number is at position " <span class="comparison"><</span><span class="comparison"><</span> i <span class="comparison"><</span><span class="comparison"><</span> " of the list" <span class="comparison"><</span><span class="comparison"><</span> endl<span class="delimiter">;</span>
+            <span class="delimiter">}</span>
+        <span class="delimiter">}</span>
+    <span class="delimiter">}</span>
+<span class="delimiter">}</span><span class="delimiter">;</span>
+
+int main<span class="delimiter">(</span><span class="delimiter">)</span> <span class="delimiter">{</span>
+    LinearSearch search<span class="delimiter">;</span>
+    search.ran<span class="reserved">do</span>m_list<span class="delimiter">(</span>1<span class="delimiter">,</span> 10<span class="delimiter">)</span><span class="delimiter">;</span>
+    search.print_list<span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    
+    <span class="reserved">return</span> 0<span class="delimiter">;</span>
+<span class="delimiter">}</span>
+</pre>
+
+</body>
+
+</html>
