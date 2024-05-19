@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  Busqueda Lineal
+//  Linear Search
 //
 //  Created by Remy Patgher on 25/10/23.
 //

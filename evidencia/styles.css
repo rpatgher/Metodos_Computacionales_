@@ -1,0 +1,37 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #ccc;
+    background-color: #242424;
+    margin: 0;
+    padding: 10px;
+}
+.directive,
+.comment{
+    opacity: .4;
+}
+.reserved{
+    color: rgb(0, 255, 174);
+}
+.delimiter{
+    color: #9e30ff;
+}
+.op{
+    color: #ef9f0b;
+}
+.float,
+.number{
+    color: #ff8c09;
+}
+.identifier{
+    color: #c96d04;
+}
+.specifier,
+.char,
+.string{
+    color: #2fff00;
+}
+.function{
+    color: #019dff;
+}
