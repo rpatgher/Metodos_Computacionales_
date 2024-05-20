@@ -1,16 +1,15 @@
 //
 //  main.cpp
-//  Linear Search
+//  Hello World
 //
-//  Created by Remy Patgher on 25/10/23.
+//  Created by Remy Patgher on 19/05/24.
 //
 
 #include <iostream>
-#include <stdlib.h>
 
 using namespace std;
 
-class LinearSearch{
-private:
-    int n; // Size of the list
-    int *list;
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
