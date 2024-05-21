@@ -12,20 +12,21 @@ body{
     opacity: .4;
 }
 .reserved{
-    color: rgb(0, 255, 174);
+    color: rgb(0, 251, 255);
 }
 .delimiter{
     color: #9e30ff;
 }
 .op{
-    color: #ef9f0b;
+    color: #ffa600;
 }
 .float,
+.null,
 .number{
-    color: #ff8c09;
+    color: #ff4209;
 }
 .identifier{
-    color: #c96d04;
+    color: #dade04;
 }
 .specifier,
 .char,

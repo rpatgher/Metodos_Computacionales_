@@ -70,11 +70,13 @@ defmodule Lexer do
                   "namespace",
                   "cin",
                   "cout",
-                  "unsigned"
+                  "unsigned",
+                  "new"
     ];
     regexes = [
       {"comment", ~r/\/\/.*/},
       {"reserved", ~r/#{Enum.join(keywords, "(?=[ :\(\)])+|(?=[ ])*")}/},
+      {"null", ~r/NULL/},
       {"string", ~r/\"[^\"]*\"/},
       {"specifier", ~r/<\w+[\.]*\w*>/},
       {"op", ~r/\+\+|--|&&|<<|>>|==|!=|<=|>=|<|>+=-*\/%|\/\/|::|->|\*|endl|\+\=|-\=|\+|\=/},
@@ -135,9 +137,15 @@ defmodule Lexer do
     |> Enum.map(&IO.puts(file, &1))
   end
 
+  def measure(in_file, filename) do
+    {time, _result} = :timer.tc(fn -> read_file(in_file, "#{filename}.html") end)
+    IO.puts("Tiempo de ejecución: #{time / 1000000} segundos")
+  end
+
 end
 
 
 [in_file] = System.argv()
 filename = Enum.at(String.split(in_file, "."), 0)
+# Lexer.measure(in_file, filename)
 Lexer.read_file(in_file, "#{filename}.html")
