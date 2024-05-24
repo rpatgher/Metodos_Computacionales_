@@ -128,12 +128,12 @@ defmodule Lexer do
   end
 
   defp write_head(file) do
-    File.stream!("assets/head.html")
+    File.stream!("html/head.html")
     |> Enum.map(&IO.puts(file, &1))
   end
 
   defp write_foot(file) do
-    File.stream!("assets/foot.html")
+    File.stream!("html/foot.html")
     |> Enum.map(&IO.puts(file, &1))
   end
 
