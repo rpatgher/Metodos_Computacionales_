@@ -80,10 +80,10 @@ defmodule Lexer do
       {"string", ~r/\"[^\"]*\"/},
       {"specifier", ~r/<\w+[\.]*\w*>/},
       {"op", ~r/\+\+|--|&&|<<|>>|==|!=|<=|>=|<|>+=-*\/%|\/\/|::|->|\*|endl|\+\=|-\=|\+|\=/},
+      {"number", ~r/\d+|\d+\.\d/},
       {"function", ~r/\w+(?=\()/},
       {"identifier", ~r/\w+/},
       {"char", ~r/'.'/},
-      {"number", ~r/\d+|\d+\.\d/},
       {"delimiter", ~r/[;{},():]|\[|\]/},
       {"directive", ~r/#|\./},
       {"space", ~r/\s/}

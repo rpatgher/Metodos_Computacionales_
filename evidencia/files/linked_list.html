@@ -45,13 +45,13 @@
     
     <span class="reserved">int</span> <span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
         <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">index</span> <span class="op">==</span> <span class="null">NULL</span><span class="delimiter">)</span>
-            <span class="reserved">return</span> <span class="identifier">1</span><span class="delimiter">;</span>
-        <span class="reserved">return</span> <span class="identifier">0</span><span class="delimiter">;</span>
+            <span class="reserved">return</span> <span class="number">1</span><span class="delimiter">;</span>
+        <span class="reserved">return</span> <span class="number">0</span><span class="delimiter">;</span>
     <span class="delimiter">}</span>
     
     <span class="reserved">int</span> <span class="function">listLength</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
-        <span class="reserved">int</span> <span class="identifier">length</span> <span class="op">=</span> <span class="identifier">0</span><span class="delimiter">;</span>
-        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="identifier">0</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">int</span> <span class="identifier">length</span> <span class="op">=</span> <span class="number">0</span><span class="delimiter">;</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="number">0</span><span class="delimiter">)</span><span class="delimiter">{</span>
             <span class="identifier">Node</span> <span class="op">*</span><span class="identifier">tempIndex</span> <span class="op">=</span> <span class="identifier">index</span><span class="delimiter">;</span>
             <span class="reserved">while</span><span class="delimiter">(</span><span class="identifier">tempIndex</span><span class="op">-></span><span class="identifier">next</span> <span class="op">!=</span> <span class="null">NULL</span><span class="delimiter">)</span><span class="delimiter">{</span>
                 <span class="identifier">tempIndex</span> <span class="op">=</span> <span class="identifier">tempIndex</span><span class="op">-></span><span class="identifier">next</span><span class="delimiter">;</span>
@@ -66,7 +66,7 @@
     <span class="reserved">void</span> <span class="function">insertEnd</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">num</span><span class="delimiter">)</span><span class="delimiter">{</span>
         <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"New Element at End in the List: "</span> <span class="op">&lt;&lt;</span> <span class="identifier">num</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
         <span class="identifier">Node</span> <span class="op">*</span><span class="identifier">element</span> <span class="op">=</span> <span class="reserved">new</span> <span class="function">Node</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
-        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="identifier">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
             <span class="identifier">element</span><span class="op">-></span><span class="identifier">data</span> <span class="op">=</span> <span class="identifier">num</span><span class="delimiter">;</span>
             <span class="identifier">element</span><span class="op">-></span><span class="identifier">next</span> <span class="op">=</span> <span class="identifier">index</span><span class="delimiter">;</span>
             <span class="identifier">index</span> <span class="op">=</span> <span class="identifier">element</span><span class="delimiter">;</span>
@@ -82,18 +82,18 @@
     <span class="delimiter">}</span>
     
     <span class="reserved">void</span> <span class="function">insertPos</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">num</span><span class="delimiter">,</span> <span class="reserved">int</span> <span class="identifier">pos</span><span class="delimiter">)</span><span class="delimiter">{</span>
-        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">pos</span> <span class="op">&lt;</span> <span class="identifier">1</span> || <span class="identifier">pos</span> > <span class="function">listLength</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">pos</span> <span class="op">&lt;</span> <span class="number">1</span> || <span class="identifier">pos</span> > <span class="function">listLength</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">)</span><span class="delimiter">{</span>
             <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"Cannot Insert. Invalid Position"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
             <span class="identifier">return</span><span class="delimiter">;</span>
         <span class="delimiter">}</span>
-        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">pos</span> <span class="op">==</span> <span class="identifier">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">pos</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
             <span class="function">insertBeg</span><span class="delimiter">(</span><span class="identifier">num</span><span class="delimiter">)</span><span class="delimiter">;</span>
             <span class="identifier">return</span><span class="delimiter">;</span>
         <span class="delimiter">}</span>
         <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"New Element on position "</span> <span class="op">&lt;&lt;</span> <span class="identifier">pos</span> <span class="op">&lt;&lt;</span> <span class="string">": "</span> <span class="op">&lt;&lt;</span> <span class="identifier">num</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
         <span class="identifier">Node</span> <span class="op">*</span><span class="identifier">element</span> <span class="op">=</span> <span class="reserved">new</span> <span class="function">Node</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
         <span class="identifier">Node</span> <span class="op">*</span><span class="identifier">tempIndex</span> <span class="op">=</span> <span class="identifier">index</span><span class="delimiter">;</span>
-        <span class="reserved">while</span><span class="delimiter">(</span><span class="op">--</span><span class="identifier">pos</span> > <span class="identifier">1</span><span class="delimiter">)</span>
+        <span class="reserved">while</span><span class="delimiter">(</span><span class="op">--</span><span class="identifier">pos</span> > <span class="number">1</span><span class="delimiter">)</span>
             <span class="identifier">tempIndex</span> <span class="op">=</span> <span class="identifier">tempIndex</span><span class="op">-></span><span class="identifier">next</span><span class="delimiter">;</span>
         <span class="identifier">element</span><span class="op">-></span><span class="identifier">data</span> <span class="op">=</span> <span class="identifier">num</span><span class="delimiter">;</span>
         <span class="identifier">element</span><span class="op">-></span><span class="identifier">next</span> <span class="op">=</span> <span class="identifier">tempIndex</span><span class="op">-></span><span class="identifier">next</span><span class="delimiter">;</span>
@@ -103,7 +103,7 @@
     <span class="reserved">void</span> <span class="function">insertBeg</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">num</span><span class="delimiter">)</span><span class="delimiter">{</span>
         <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"New Element at Beginning in the List: "</span> <span class="op">&lt;&lt;</span> <span class="identifier">num</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
         <span class="identifier">Node</span> <span class="op">*</span><span class="identifier">element</span> <span class="op">=</span> <span class="reserved">new</span> <span class="function">Node</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
-        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="identifier">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
             <span class="identifier">element</span><span class="op">-></span><span class="identifier">data</span> <span class="op">=</span> <span class="identifier">num</span><span class="delimiter">;</span>
             <span class="identifier">element</span><span class="op">-></span><span class="identifier">next</span> <span class="op">=</span> <span class="identifier">index</span><span class="delimiter">;</span>
             <span class="identifier">index</span> <span class="op">=</span> <span class="identifier">element</span><span class="delimiter">;</span>
@@ -115,7 +115,7 @@
     <span class="delimiter">}</span>
     
     <span class="reserved">void</span> <span class="function">deleteEnd</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
-        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="identifier">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
             <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"The List is empty"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
             <span class="identifier">return</span><span class="delimiter">;</span>
         <span class="delimiter">}</span>
@@ -134,16 +134,16 @@
     <span class="delimiter">}</span>
     
     <span class="reserved">void</span> <span class="function">deletePos</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">pos</span><span class="delimiter">)</span><span class="delimiter">{</span>
-        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">pos</span> <span class="op">&lt;</span> <span class="identifier">1</span> || <span class="identifier">pos</span> > <span class="function">listLength</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">pos</span> <span class="op">&lt;</span> <span class="number">1</span> || <span class="identifier">pos</span> > <span class="function">listLength</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">)</span><span class="delimiter">{</span>
             <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"Cannot Insert. Invalid Position"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
             <span class="identifier">return</span><span class="delimiter">;</span>
         <span class="delimiter">}</span>
-        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">pos</span> <span class="op">==</span> <span class="identifier">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">pos</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
             <span class="function">deleteBeg</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
             <span class="identifier">return</span><span class="delimiter">;</span>
         <span class="delimiter">}</span>
         <span class="identifier">Node</span> <span class="op">*</span><span class="identifier">tempIndex</span> <span class="op">=</span> <span class="identifier">index</span><span class="delimiter">;</span>
-        <span class="reserved">while</span><span class="delimiter">(</span><span class="op">--</span><span class="identifier">pos</span> > <span class="identifier">1</span><span class="delimiter">)</span>
+        <span class="reserved">while</span><span class="delimiter">(</span><span class="op">--</span><span class="identifier">pos</span> > <span class="number">1</span><span class="delimiter">)</span>
             <span class="identifier">tempIndex</span> <span class="op">=</span> <span class="identifier">tempIndex</span><span class="op">-></span><span class="identifier">next</span><span class="delimiter">;</span>
         <span class="identifier">Node</span> <span class="op">*</span><span class="identifier">temp</span> <span class="op">=</span> <span class="identifier">tempIndex</span><span class="op">-></span><span class="identifier">next</span><span class="delimiter">;</span>
         <span class="identifier">tempIndex</span><span class="op">-></span><span class="identifier">next</span> <span class="op">=</span> <span class="identifier">tempIndex</span><span class="op">-></span><span class="identifier">next</span><span class="op">-></span><span class="identifier">next</span><span class="delimiter">;</span>
@@ -152,7 +152,7 @@
     <span class="delimiter">}</span>
     
     <span class="reserved">void</span> <span class="function">deleteElement</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">num</span><span class="delimiter">)</span><span class="delimiter">{</span>
-        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="identifier">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
             <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"The List is empty"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
             <span class="identifier">return</span><span class="delimiter">;</span>
         <span class="delimiter">}</span>
@@ -179,7 +179,7 @@
     <span class="delimiter">}</span>
     
     <span class="reserved">void</span> <span class="function">deleteBeg</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
-        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="identifier">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyList</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
             <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"The List is empty"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
             <span class="identifier">return</span><span class="delimiter">;</span>
         <span class="delimiter">}</span>
@@ -204,13 +204,13 @@
 <span class="reserved">int</span> <span class="function">main</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="delimiter">{</span>
     <span class="identifier">LinkedList</span> <span class="identifier">list</span><span class="delimiter">;</span>
     
-    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertBeg</span><span class="delimiter">(</span><span class="identifier">3</span><span class="delimiter">)</span><span class="delimiter">;</span>
-    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertBeg</span><span class="delimiter">(</span><span class="identifier">4</span><span class="delimiter">)</span><span class="delimiter">;</span>
-    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertBeg</span><span class="delimiter">(</span><span class="identifier">5</span><span class="delimiter">)</span><span class="delimiter">;</span>
-    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertBeg</span><span class="delimiter">(</span><span class="identifier">6</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertBeg</span><span class="delimiter">(</span><span class="number">3</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertBeg</span><span class="delimiter">(</span><span class="number">4</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertBeg</span><span class="delimiter">(</span><span class="number">5</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertBeg</span><span class="delimiter">(</span><span class="number">6</span><span class="delimiter">)</span><span class="delimiter">;</span>
     <span class="comment">//list.showData();</span>
-    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertEnd</span><span class="delimiter">(</span><span class="identifier">2</span><span class="delimiter">)</span><span class="delimiter">;</span>
-    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertEnd</span><span class="delimiter">(</span><span class="identifier">1</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertEnd</span><span class="delimiter">(</span><span class="number">2</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertEnd</span><span class="delimiter">(</span><span class="number">1</span><span class="delimiter">)</span><span class="delimiter">;</span>
     <span class="comment">//list.showData();</span>
     
     <span class="comment">//list.deleteEnd();</span>
@@ -218,17 +218,17 @@
     <span class="comment">//list.showData();</span>
     <span class="comment">//list.listLength();</span>
     
-    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertPos</span><span class="delimiter">(</span><span class="identifier">5</span><span class="delimiter">,</span> <span class="identifier">2</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="identifier">list</span><span class="directive">.</span><span class="function">insertPos</span><span class="delimiter">(</span><span class="number">5</span><span class="delimiter">,</span> <span class="number">2</span><span class="delimiter">)</span><span class="delimiter">;</span>
     <span class="comment">//list.showData();</span>
     <span class="comment">//list.deletePos(2);</span>
     <span class="identifier">list</span><span class="directive">.</span><span class="function">showData</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
     
-    <span class="identifier">list</span><span class="directive">.</span><span class="function">deleteElement</span><span class="delimiter">(</span><span class="identifier">5</span><span class="delimiter">)</span><span class="delimiter">;</span>
-    <span class="identifier">list</span><span class="directive">.</span><span class="function">deleteElement</span><span class="delimiter">(</span><span class="identifier">8</span><span class="delimiter">)</span><span class="delimiter">;</span>
-    <span class="identifier">list</span><span class="directive">.</span><span class="function">deleteElement</span><span class="delimiter">(</span><span class="identifier">6</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="identifier">list</span><span class="directive">.</span><span class="function">deleteElement</span><span class="delimiter">(</span><span class="number">5</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="identifier">list</span><span class="directive">.</span><span class="function">deleteElement</span><span class="delimiter">(</span><span class="number">8</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="identifier">list</span><span class="directive">.</span><span class="function">deleteElement</span><span class="delimiter">(</span><span class="number">6</span><span class="delimiter">)</span><span class="delimiter">;</span>
     <span class="identifier">list</span><span class="directive">.</span><span class="function">showData</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
     
-    <span class="reserved">return</span> <span class="identifier">0</span><span class="delimiter">;</span>
+    <span class="reserved">return</span> <span class="number">0</span><span class="delimiter">;</span>
 <span class="delimiter">}</span>
 </pre>
 
