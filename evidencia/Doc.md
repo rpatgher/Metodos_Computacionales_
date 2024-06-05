@@ -5,7 +5,7 @@
 - A01784177
 
 ## Descripción
-Programa resaltador de sintáxis del lenguaje de programación C++ hecho en elixir con programación funcional. El programa recibe como entrada la referencia de un archivo de texto con formato cpp (ejemplo.cpp), procesa el texto identifica los diferentes tipos de tokens de dicho lenguaje y posteriormente lo convierte a HTML con etiquetas span y clases del tipo de token identificado, los escibre en un archivo para que, de esta forma, se muestre del color correspondiente en el HTML.
+Programa resaltador de sintáxis del lenguaje de programación C++ hecho en elixir con programación funcional. El programa recibe como entrada la referencia de un archivo de texto con formato cpp (ejemplo.cpp), procesa el texto e identifica los diferentes tipos de tokens de dicho lenguaje haciendo uso de expresiones regulares y posteriormente lo convierte a HTML con etiquetas span y clases del tipo de token identificado, los escibre en un archivo para que, de esta forma, se muestre del color correspondiente en el HTML.
 
 ### Tipos de tokens
 - Palabras Reservadas (if, else, for, etc)
@@ -37,6 +37,60 @@ El programa cuenta con 9 funciones:
 - __validate_line__: Esta función recibe cada línea a procesar, así como el archivo donde va a escribir todo (esto para pasar la referencia del archivo para cuando se necesite escribir la línea procesada). Esta función genera las regex y las pasa a otra llamada *process_line* para que dicha función itere recursivamente las regex y detecte los diferentes tipos de tokens en cada línea.
 
 - __process_line__: Está función busca coincidencias de las regex y si encuentra una en el medio, parte la línea y cada parte la vuelve a procesar (conviertíendola a HTML) por separado (recursivamente). Finalmente cuando, ya no queda más por procesar, procede a concatenar cada token ya formateado para general una nueva línea pero convertida a HTML.
+    - Para la validación de los diferentes tipos de tokens se utilizaron las siguientes expresiones regulares:
+        - Comentario
+            ```
+            ~r/\/\/.*/
+            ```
+        - Palabras Reservadas -> 
+            ```
+            ~r/\/\/.*/
+            ```
+        - Null
+            ```
+            ~r/NULL/
+            ```
+        - Cadena de Caracteres
+            ```
+            ~r/\"[^\"]*\"/
+            ```
+        - Especificador 
+            ```
+            ~r/<\w+[\.]*\w*>/
+            ```
+        - Operadores
+            ```
+            ~r/\+\+|--|&&|<<|>>|==|!=|<=|>=|<|>+=-*\/%|\/\/|::|->|\*|endl|\+\=|-\=|\+|\=/
+            ```
+        - Números
+            ```
+            ~r/\d+|\d+\.\d/
+            ```
+        - Funciones
+            ```
+            ~r/\w+(?=\()/
+            ```
+        - Identificadores
+            ```
+            ~r/\w+/
+            ```
+        - Caracteres
+            ```
+            ~r/'.'/
+            ```
+        - Delimitadores
+            ```
+            ~r/[;{},():]|\[|\]/
+            ```
+        - Directivas
+            ```
+            ~r/#|\./
+            ```
+        - Espacios
+            ```
+            ~r/\s/
+            ```
+
 
 - __split_at_match__: Esta función recibe una cadena (una línea o parte de una línea) y la parte devolviendo la parte anterior a la coincidencia y la parte posterior.
 
