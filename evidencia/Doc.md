@@ -44,8 +44,70 @@ El programa cuenta con 9 funciones:
             ```
         - Palabras Reservadas -> 
             ```
-            ~r/\/\/.*/
+            ~r/#{Enum.join(keywords, "(?=[ :\(\)])+|(?=\b)*")}/
             ```
+            Donde keywords es:
+            ````
+            keywords = [
+                  "if",
+                  "else",
+                  "while",
+                  "do",
+                  "for",
+                  "return",
+                  "break",
+                  "continue",
+                  "int",
+                  "float",
+                  "char",
+                  "string",
+                  "void",
+                  "struct",
+                  "typedef",
+                  "sizeof",
+                  "enum",
+                  "static",
+                  "const",
+                  "extern",
+                  "register",
+                  "auto",
+                  "volatile",
+                  "union",
+                  "goto",
+                  "case",
+                  "default",
+                  "switch",
+                  "include",
+                  "define",
+                  "ifdef",
+                  "ifndef",
+                  "endif",
+                  "elif",
+                  "else",
+                  "error",
+                  "pragma",
+                  "undef",
+                  "line",
+                  "warning",
+                  "import",
+                  "module",
+                  "export",
+                  "public",
+                  "private",
+                  "protected",
+                  "class",
+                  "interface",
+                  "extends",
+                  "implements",
+                  "abstract",
+                  "using",
+                  "namespace",
+                  "cin",
+                  "cout",
+                  "unsigned",
+                  "new"
+            ];
+            ````
         - Null
             ```
             ~r/NULL/
