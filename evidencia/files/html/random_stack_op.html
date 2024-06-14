@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<pre>
+<span class="comment">//</span>
+<span class="comment">//  main.cpp</span>
+<span class="comment">//  Tarea4_Ej1</span>
+<span class="comment">//</span>
+<span class="comment">//  Created by Remy Patgher on 23/09/23.</span>
+<span class="comment">//</span>
+
+<span class="directive">#</span><span class="reserved">include</span> <span class="specifier">&lt;iostream></span>
+<span class="directive">#</span><span class="reserved">include</span> <span class="specifier">&lt;stdlib.h></span>
+
+<span class="reserved">using</span> <span class="reserved">namespace</span> <span class="identifier">std</span><span class="delimiter">;</span>
+
+<span class="directive">#</span><span class="reserved">define</span> <span class="identifier">maxStack</span> <span class="number">5</span>
+
+<span class="reserved">class</span> <span class="identifier">Dice</span><span class="delimiter">{</span>
+<span class="reserved">private</span><span class="delimiter">:</span>
+    <span class="reserved">int</span> <span class="identifier">maxNum</span><span class="delimiter">,</span> <span class="identifier">minNum</span><span class="delimiter">;</span>
+    
+<span class="reserved">public</span><span class="delimiter">:</span>
+    <span class="function">Dice</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">min</span><span class="delimiter">,</span> <span class="reserved">int</span> <span class="identifier">max</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="identifier">maxNum</span> <span class="op">=</span> <span class="identifier">max</span><span class="delimiter">;</span>
+        <span class="identifier">minNum</span> <span class="op">=</span> <span class="identifier">min</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">int</span> <span class="function">random</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">return</span> <span class="function">rand</span><span class="delimiter">(</span><span class="delimiter">)</span> % <span class="identifier">maxNum</span> <span class="op">+</span> <span class="identifier">minNum</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+<span class="delimiter">}</span><span class="delimiter">;</span>
+
+<span class="reserved">class</span> <span class="identifier">Stack</span><span class="delimiter">{</span>
+<span class="reserved">private</span><span class="delimiter">:</span>
+    <span class="reserved">int</span> <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">maxStack</span><span class="delimiter">]</span><span class="delimiter">;</span>
+    <span class="reserved">int</span> <span class="identifier">top</span><span class="delimiter">;</span>
+<span class="reserved">public</span><span class="delimiter">:</span>
+    <span class="comment">// Init Stack</span>
+    <span class="function">Stack</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="identifier">top</span> <span class="op">=</span> -<span class="number">1</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">int</span> <span class="function">fullStack</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">top</span> <span class="op">==</span> <span class="identifier">maxStack</span> - <span class="number">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"The Stack is full"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+            <span class="reserved">return</span> <span class="number">1</span><span class="delimiter">;</span>
+        <span class="delimiter">}</span><span class="identifier">else</span>
+            <span class="reserved">return</span> <span class="number">0</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">int</span> <span class="function">emptyStack</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">top</span> <span class="op">==</span> -<span class="number">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"The Stack is empty"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+            <span class="reserved">return</span> <span class="number">1</span><span class="delimiter">;</span>
+        <span class="delimiter">}</span><span class="identifier">else</span>
+            <span class="reserved">return</span> <span class="number">0</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">void</span> <span class="function">push</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="reserved">new</span><span class="identifier">Num</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"New element on Stack: "</span> <span class="op">&lt;&lt;</span> <span class="reserved">new</span><span class="identifier">Num</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">fullStack</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span>
+            <span class="identifier">return</span><span class="delimiter">;</span>
+        <span class="identifier">top</span><span class="op">++</span><span class="delimiter">;</span>
+        <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">top</span><span class="delimiter">]</span> <span class="op">=</span> <span class="reserved">new</span><span class="identifier">Num</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">void</span> <span class="function">pop</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"Deleting element from Stack: "</span> <span class="op">&lt;&lt;</span> <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">top</span><span class="delimiter">]</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+        <span class="reserved">if</span> <span class="delimiter">(</span><span class="function">emptyStack</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span>
+            <span class="identifier">return</span><span class="delimiter">;</span>
+        <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">top</span><span class="delimiter">]</span> <span class="op">=</span> <span class="number">0</span><span class="delimiter">;</span>
+        <span class="identifier">top</span><span class="op">--</span><span class="delimiter">;</span>
+     <span class="delimiter">}</span>
+    
+    <span class="reserved">void</span> <span class="function">showStackElements</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">int</span> <span class="identifier">i</span><span class="delimiter">;</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"Elements on Stack: "</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"---------"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+        <span class="reserved">for</span><span class="delimiter">(</span><span class="identifier">i</span> <span class="op">=</span> <span class="identifier">top</span><span class="delimiter">;</span> <span class="identifier">i</span> <span class="op">>=</span> <span class="number">0</span><span class="delimiter">;</span> <span class="identifier">i</span><span class="op">--</span><span class="delimiter">)</span>
+            <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"|\t"</span> <span class="op">&lt;&lt;</span> <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">i</span><span class="delimiter">]</span> <span class="op">&lt;&lt;</span> <span class="string">"\t|"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"---------"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">void</span> <span class="function">chooseOperation</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="identifier">Dice</span> <span class="function">decision</span><span class="delimiter">(</span><span class="number">1</span><span class="delimiter">,</span> <span class="number">2</span><span class="delimiter">)</span><span class="delimiter">;</span>
+        <span class="identifier">Dice</span> <span class="function">number</span><span class="delimiter">(</span><span class="number">0</span><span class="delimiter">,</span> <span class="number">9</span><span class="delimiter">)</span><span class="delimiter">;</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">decision</span><span class="directive">.</span><span class="function">random</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            <span class="function">push</span><span class="delimiter">(</span><span class="identifier">number</span><span class="directive">.</span><span class="function">random</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">)</span><span class="delimiter">;</span>
+        <span class="delimiter">}</span><span class="identifier">else</span><span class="delimiter">{</span>
+            <span class="function">pop</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
+        <span class="delimiter">}</span>
+    <span class="delimiter">}</span>
+<span class="delimiter">}</span><span class="delimiter">;</span>
+
+<span class="reserved">int</span> <span class="function">main</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="delimiter">{</span>
+    <span class="function">srand</span><span class="delimiter">(</span><span class="function">time</span><span class="delimiter">(</span><span class="number">0</span><span class="delimiter">)</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="identifier">Stack</span> <span class="identifier">stack</span><span class="delimiter">;</span>
+    <span class="reserved">int</span> <span class="identifier">op</span><span class="delimiter">;</span>
+    <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> "<span class="identifier">Enter</span> <span class="identifier">the</span> <span class="identifier">number</span> <span class="identifier">of</span> <span class="identifier">operations</span> <span class="identifier">you</span> <span class="identifier">want</span> <span class="identifier">to</span> <span class="reserved">do</span><span class="delimiter">:</span> "<span class="delimiter">;</span> <span class="reserved">cin</span> <span class="op">>></span> <span class="identifier">op</span><span class="delimiter">;</span>
+    
+    <span class="reserved">for</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">i</span> <span class="op">=</span> <span class="number">0</span><span class="delimiter">;</span> <span class="identifier">i</span> <span class="op">&lt;</span> <span class="identifier">op</span><span class="delimiter">;</span> <span class="identifier">i</span><span class="op">++</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="identifier">stack</span><span class="directive">.</span><span class="function">chooseOperation</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
+        <span class="identifier">stack</span><span class="directive">.</span><span class="function">showStackElements</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">return</span> <span class="number">0</span><span class="delimiter">;</span>
+<span class="delimiter">}</span>
+</pre>
+
+</body>
+
+</html>

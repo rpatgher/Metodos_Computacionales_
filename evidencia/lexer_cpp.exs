@@ -9,6 +9,47 @@
 
 defmodule Lexer do
   @doc """
+  Reads all the C++ files in a directory and generates an HTML file with the syntax highlighted but in parallel
+  """
+  def read_file_parallel(directory) do
+    IO.puts("Reading files in parallel")
+    files = File.ls!(directory)
+    tasks =
+      Enum.filter(files, fn file -> String.ends_with?(file, ".cpp") end)
+      |> Enum.map(fn file ->
+        filename = Enum.at(String.split(file, "."), 0)
+        Task.async(fn -> read_file("#{directory}/#{file}", "#{directory}/html/#{filename}.html") end)
+      end)
+    Enum.map(tasks, &Task.await(&1, :infinity))
+  end
+
+  @doc """
+  Reads all the C++ files in a directory and generates an HTML file with the syntax highlighted sequentially
+  """
+  def read_file_sequential(directory) do
+    IO.puts("Reading files in sequence")
+    files = File.ls!(directory)
+    Enum.filter(files, fn file -> String.ends_with?(file, ".cpp") end)
+    |> Enum.map(fn file ->
+      filename = Enum.at(String.split(file, "."), 0)
+      read_file("#{directory}/#{file}", "#{directory}/html/#{filename}.html")
+    end)
+  end
+
+  @doc """
+  Reads all the C++ files in a directory and generates an HTML file with the syntax highlighted in parallel and sequentially
+  and calculates the speedup
+  """
+  def read_file_speedup(directory) do
+    IO.puts("Reading files in parallel and in sequence with speedup")
+    time_parallel = :timer.tc(fn -> read_file_parallel(directory) end) |> elem(0) |> Kernel./(1_000_000)
+    time_sequential = :timer.tc(fn -> read_file_sequential(directory) end) |> elem(0) |> Kernel./(1_000_000)
+    IO.puts("Time sequential: #{time_sequential} seconds")
+    IO.puts("Time parallel: #{time_parallel} seconds")
+    IO.puts("Speedup: #{time_sequential/time_parallel}")
+  end
+
+  @doc """
   Reads a C++ file and generates an HTML file with the syntax highlighted
   """
   def read_file(in_filename, out_filename) do
@@ -178,7 +219,16 @@ defmodule Lexer do
 end
 
 
-[in_file] = System.argv()
+[in_file, mode] = System.argv()
 filename = Enum.at(String.split(in_file, "."), 0)
 # Lexer.measure(in_file, filename)
-Lexer.read_file(in_file, "#{filename}.html")
+cond do
+  mode == "par" ->
+    Lexer.read_file_parallel(in_file)
+  mode == "seq" ->
+    Lexer.read_file_sequential(in_file)
+  mode == "speed" ->
+    Lexer.read_file_speedup(in_file)
+  true ->
+    Lexer.read_file(in_file, "#{filename}.html")
+end

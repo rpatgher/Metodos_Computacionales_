@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<pre>
+<span class="comment">//</span>
+<span class="comment">//  main.cpp</span>
+<span class="comment">//  Tarea4_Ej2</span>
+<span class="comment">//</span>
+<span class="comment">//  Created by Remy Patgher on 23/09/23.</span>
+<span class="comment">//</span>
+
+<span class="directive">#</span><span class="reserved">include</span> <span class="specifier">&lt;iostream></span>
+<span class="directive">#</span><span class="reserved">include</span> <span class="specifier">&lt;stdlib.h></span>
+
+<span class="reserved">using</span> <span class="reserved">namespace</span> <span class="identifier">std</span><span class="delimiter">;</span>
+
+<span class="directive">#</span><span class="reserved">define</span> <span class="identifier">maxQueue</span> <span class="number">5</span>
+
+<span class="reserved">class</span> <span class="identifier">Dice</span><span class="delimiter">{</span>
+<span class="reserved">private</span><span class="delimiter">:</span>
+    <span class="reserved">int</span> <span class="identifier">maxNum</span><span class="delimiter">,</span> <span class="identifier">minNum</span><span class="delimiter">;</span>
+    
+<span class="reserved">public</span><span class="delimiter">:</span>
+    <span class="function">Dice</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">min</span><span class="delimiter">,</span> <span class="reserved">int</span> <span class="identifier">max</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="identifier">maxNum</span> <span class="op">=</span> <span class="identifier">max</span><span class="delimiter">;</span>
+        <span class="identifier">minNum</span> <span class="op">=</span> <span class="identifier">min</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">int</span> <span class="function">random</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">return</span> <span class="function">rand</span><span class="delimiter">(</span><span class="delimiter">)</span> % <span class="identifier">maxNum</span> <span class="op">+</span> <span class="identifier">minNum</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+<span class="delimiter">}</span><span class="delimiter">;</span>
+
+<span class="reserved">class</span> <span class="identifier">Queue</span><span class="delimiter">{</span>
+<span class="reserved">private</span><span class="delimiter">:</span>
+    <span class="reserved">int</span> <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">maxQueue</span><span class="delimiter">]</span><span class="delimiter">;</span>
+    <span class="reserved">int</span> <span class="identifier">front</span><span class="delimiter">;</span>
+    <span class="reserved">int</span> <span class="identifier">back</span><span class="delimiter">;</span>
+    
+<span class="reserved">public</span><span class="delimiter">:</span>
+    <span class="function">Queue</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="identifier">front</span> <span class="op">=</span> <span class="number">0</span><span class="delimiter">;</span>
+        <span class="identifier">back</span> <span class="op">=</span> <span class="number">0</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">int</span> <span class="function">emptyQueue</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">front</span> <span class="op">==</span> <span class="identifier">back</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"The Queue is empty"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+            <span class="reserved">return</span> <span class="number">1</span><span class="delimiter">;</span>
+        <span class="delimiter">}</span><span class="identifier">else</span>
+            <span class="reserved">return</span> <span class="number">0</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">int</span> <span class="function">fullQueue</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">back</span> <span class="op">==</span> <span class="identifier">maxQueue</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"The Queue is full"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+            <span class="reserved">return</span> <span class="number">1</span><span class="delimiter">;</span>
+        <span class="delimiter">}</span><span class="identifier">else</span>
+            <span class="reserved">return</span> <span class="number">0</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">void</span> <span class="function">enqueue</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">num</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"New element on Queue: "</span> <span class="op">&lt;&lt;</span> <span class="identifier">num</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">fullQueue</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span>
+            <span class="identifier">return</span><span class="delimiter">;</span>
+        <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">back</span><span class="delimiter">]</span> <span class="op">=</span> <span class="identifier">num</span><span class="delimiter">;</span>
+        <span class="identifier">back</span><span class="op">++</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">void</span> <span class="function">dequeue</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span> <span class="op">&lt;&lt;</span> <span class="string">"Deleting elemento from Queue: "</span> <span class="op">&lt;&lt;</span> <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">front</span><span class="delimiter">]</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="function">emptyQueue</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="op">==</span> <span class="number">1</span><span class="delimiter">)</span>
+            <span class="identifier">return</span><span class="delimiter">;</span>
+        <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">front</span><span class="delimiter">]</span> <span class="op">=</span> <span class="number">0</span><span class="delimiter">;</span>
+        <span class="reserved">for</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">i</span> <span class="op">=</span> <span class="number">0</span><span class="delimiter">;</span> <span class="identifier">i</span> <span class="op">&lt;</span> <span class="delimiter">(</span><span class="identifier">back</span> - <span class="number">1</span><span class="delimiter">)</span><span class="delimiter">;</span> <span class="identifier">i</span><span class="op">++</span><span class="delimiter">)</span>
+            <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">i</span><span class="delimiter">]</span> <span class="op">=</span> <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">i</span><span class="op">+</span><span class="number">1</span><span class="delimiter">]</span><span class="delimiter">;</span>
+        <span class="identifier">back</span><span class="op">--</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">void</span> <span class="function">showQueueQueueElements</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"Elements on Queue: "</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"|"</span><span class="delimiter">;</span>
+        <span class="reserved">for</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">i</span> <span class="op">=</span> <span class="identifier">front</span><span class="delimiter">;</span> <span class="identifier">i</span> <span class="op">&lt;</span> <span class="identifier">back</span><span class="delimiter">;</span> <span class="identifier">i</span><span class="op">++</span><span class="delimiter">)</span>
+            <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"\t"</span> <span class="op">&lt;&lt;</span> <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">i</span><span class="delimiter">]</span> <span class="op">&lt;&lt;</span> <span class="string">"\t|"</span><span class="delimiter">;</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">void</span> <span class="function">fillQueue</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="identifier">Dice</span> <span class="function">number</span><span class="delimiter">(</span><span class="number">1</span><span class="delimiter">,</span> <span class="number">5</span><span class="delimiter">)</span><span class="delimiter">;</span>
+        <span class="reserved">for</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">i</span> <span class="op">=</span> <span class="number">0</span><span class="delimiter">;</span> <span class="identifier">i</span> <span class="op">&lt;</span> <span class="identifier">maxQueue</span><span class="delimiter">;</span> <span class="identifier">i</span><span class="op">++</span><span class="delimiter">)</span>
+            <span class="function">enqueue</span><span class="delimiter">(</span><span class="identifier">number</span><span class="directive">.</span><span class="function">random</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">void</span> <span class="function">toSquare</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">for</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">i</span> <span class="op">=</span> <span class="identifier">front</span><span class="delimiter">;</span> <span class="identifier">i</span> <span class="op">&lt;</span> <span class="identifier">back</span><span class="delimiter">;</span> <span class="identifier">i</span><span class="op">++</span><span class="delimiter">)</span>
+            <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">i</span><span class="delimiter">]</span><span class="op">*</span><span class="op">=</span> <span class="identifier">values</span><span class="delimiter">[</span><span class="identifier">i</span><span class="delimiter">]</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+<span class="delimiter">}</span><span class="delimiter">;</span>
+
+<span class="reserved">int</span> <span class="function">main</span><span class="delimiter">(</span><span class="delimiter">)</span> <span class="delimiter">{</span>
+    
+    <span class="identifier">Queue</span> <span class="identifier">queue</span><span class="delimiter">;</span>
+    <span class="identifier">queue</span><span class="directive">.</span><span class="function">fillQueue</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+    <span class="identifier">queue</span><span class="directive">.</span><span class="function">showQueueQueueElements</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    
+    <span class="identifier">queue</span><span class="directive">.</span><span class="function">toSquare</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+    <span class="identifier">queue</span><span class="directive">.</span><span class="function">showQueueQueueElements</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    
+    
+    <span class="reserved">return</span> <span class="number">0</span><span class="delimiter">;</span>
+<span class="delimiter">}</span>
+</pre>
+
+</body>
+
+</html>

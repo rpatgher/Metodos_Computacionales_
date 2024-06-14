@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<pre>
+<span class="comment">//</span>
+<span class="comment">//  main.cpp</span>
+<span class="comment">//  Tarea2_Ej1</span>
+<span class="comment">//</span>
+<span class="comment">//  Created by Remy Patgher on 27/08/23.</span>
+<span class="comment">//</span>
+
+<span class="directive">#</span><span class="reserved">include</span> <span class="specifier">&lt;iostream></span>
+
+<span class="reserved">using</span> <span class="reserved">namespace</span> <span class="identifier">std</span><span class="delimiter">;</span>
+
+<span class="reserved">class</span> <span class="identifier">Numbers</span><span class="delimiter">{</span>
+<span class="reserved">private</span><span class="delimiter">:</span>
+    <span class="reserved">int</span> <span class="identifier">numsInit</span><span class="delimiter">[</span><span class="number">5</span><span class="delimiter">]</span><span class="delimiter">;</span>
+    <span class="reserved">int</span> <span class="identifier">length</span><span class="delimiter">;</span>
+    
+<span class="reserved">public</span><span class="delimiter">:</span>
+    <span class="function">Numbers</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="identifier">length</span> <span class="op">=</span> <span class="reserved">sizeof</span><span class="delimiter">(</span><span class="identifier">numsInit</span><span class="delimiter">)</span>/<span class="reserved">sizeof</span><span class="delimiter">(</span><span class="identifier">numsInit</span><span class="delimiter">[</span><span class="number">0</span><span class="delimiter">]</span><span class="delimiter">)</span><span class="delimiter">;</span>
+        <span class="reserved">for</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">i</span> <span class="op">=</span> <span class="number">0</span><span class="delimiter">;</span> <span class="identifier">i</span> <span class="op">&lt;</span> <span class="identifier">length</span><span class="delimiter">;</span> <span class="identifier">i</span><span class="op">++</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"Enter the number "</span> <span class="op">&lt;&lt;</span><span class="identifier">i</span><span class="op">+</span><span class="number">1</span><span class="op">&lt;&lt;</span> <span class="string">": "</span><span class="delimiter">;</span> <span class="identifier">cin</span><span class="op">>></span><span class="identifier">numsInit</span><span class="delimiter">[</span><span class="identifier">i</span><span class="delimiter">]</span><span class="delimiter">;</span>
+        <span class="delimiter">}</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">void</span> <span class="function">multiplyNums</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">int</span> <span class="reserved">new</span><span class="identifier">Nums</span><span class="delimiter">[</span><span class="identifier">length</span><span class="delimiter">]</span><span class="delimiter">;</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+        <span class="reserved">for</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">i</span> <span class="op">=</span> <span class="number">0</span><span class="delimiter">;</span> <span class="identifier">i</span> <span class="op">&lt;</span> <span class="identifier">length</span><span class="delimiter">;</span> <span class="identifier">i</span><span class="op">++</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            <span class="reserved">new</span><span class="identifier">Nums</span><span class="delimiter">[</span><span class="identifier">i</span><span class="delimiter">]</span> <span class="op">=</span> <span class="identifier">numsInit</span><span class="delimiter">[</span><span class="identifier">i</span><span class="delimiter">]</span> <span class="op">*</span> <span class="number">2</span><span class="delimiter">;</span>
+            <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="reserved">new</span><span class="identifier">Nums</span><span class="delimiter">[</span><span class="identifier">i</span><span class="delimiter">]</span> <span class="op">&lt;&lt;</span> <span class="string">"\t"</span><span class="delimiter">;</span>
+        <span class="delimiter">}</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+<span class="delimiter">}</span><span class="delimiter">;</span>
+
+
+<span class="reserved">int</span> <span class="function">main</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">argc</span><span class="delimiter">,</span> <span class="reserved">const</span> <span class="reserved">char</span> <span class="op">*</span> <span class="identifier">argv</span><span class="delimiter">[</span><span class="delimiter">]</span><span class="delimiter">)</span> <span class="delimiter">{</span>
+    <span class="identifier">Numbers</span> <span class="identifier">nums</span><span class="delimiter">;</span>
+    
+    <span class="identifier">nums</span><span class="directive">.</span><span class="function">multiplyNums</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    
+    <span class="reserved">return</span> <span class="number">0</span><span class="delimiter">;</span>
+<span class="delimiter">}</span>
+</pre>
+
+</body>
+
+</html>

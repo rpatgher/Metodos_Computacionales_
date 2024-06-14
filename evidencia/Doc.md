@@ -6,6 +6,7 @@
 
 ## Descripción
 Programa resaltador de sintáxis del lenguaje de programación C++ hecho en elixir con programación funcional. El programa recibe como entrada la referencia de un archivo de texto con formato cpp (ejemplo.cpp), procesa el texto e identifica los diferentes tipos de tokens de dicho lenguaje haciendo uso de expresiones regulares y posteriormente lo convierte a HTML con etiquetas span y clases del tipo de token identificado, los escibre en un archivo para que, de esta forma, se muestre del color correspondiente en el HTML.
+El programa tiene la posibilidad de ejecutar varios archivos en paralelo o en secuencia. 
 
 ### Tipos de tokens
 - Palabras Reservadas (if, else, for, etc)
@@ -30,8 +31,29 @@ Para ejecutar el programa se debe utilizar el compilador de elixir en la termina
 elixir lexer_cpp.exs file/linked_list.cpp
 ```
 
+Si se quiere ejecutar para varios archivos, solo debe poner la ruta del directorio donde se encuentran todos los archivos y especificar el modo de ejecución.
+
+#### Ejemplo:
+```bash
+elixir lexer_cpp.exs file seq
+```
+
 ## Descripción técnica general del programa
-El programa cuenta con 9 funciones:
+El programa cuenta con 12 funciones:
+- __read_file_parallel__: Esta función sirve para ejecutar el programa para varios archivos. Recibe como parámetro la ruta del directorio donde se encuentran esos archivos y los ejecuta de manera paralela, es decir, todos al mismo tiempo.
+
+- __read_file_sequential__: Esta función sirve para ejecutar el programa para varios archivos. Recibe como parámetro la ruta del directorio donde se encuentran esos archivos pero esta los ejecuta de manera secuencial, es decir, uno después del otro.
+
+- __read_file_speedup__: Esta función sirve para ejecutar el programa para varios archivos. Recibe como parámetro la ruta del directorio donde se encuentran esos archivos de manera paralela y luego secuencial y posteriormente evalúa su _speedup_ a partir de la siguiente fórmula:
+
+    $S_p = \dfrac{T_1}{T_p}$
+
+    En donde:
+    - $p$ es el número de procesadores (o núcleos).
+    - $T_1$ es el tiempo que tarda en ejecutarse la versión secuencial del programa.
+    - $T_p$ es el tiempo que tarda en ejecutarse la versión paralela del programa utilizando $p$ procesadores.
+    - $S_p$ es el _speedup_ obtenido usando $p$ procesadores.
+
 - __read_file__: Esta función recibe como parámetros el nombre del archivo de entrada y el de salida. Sirve básicamente para abrir el archivo del código a procesar, así como el archivo donde se va a escribir el HTML. Una vez que lee el archivo de C++, procede a pasar línea por línea a la función *validate_line*.
 
 - __validate_line__: Esta función recibe cada línea a procesar, así como el archivo donde va a escribir todo (esto para pasar la referencia del archivo para cuando se necesite escribir la línea procesada). Esta función genera las regex y las pasa a otra llamada *process_line* para que dicha función itere recursivamente las regex y detecte los diferentes tipos de tokens en cada línea.

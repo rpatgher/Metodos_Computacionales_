@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<pre>
+<span class="comment">//</span>
+<span class="comment">//  main.cpp</span>
+<span class="comment">//  Tarea2_Ej2</span>
+<span class="comment">//</span>
+<span class="comment">//  Created by Remy Patgher on 27/08/23.</span>
+<span class="comment">//</span>
+
+<span class="directive">#</span><span class="reserved">include</span> <span class="specifier">&lt;iostream></span>
+
+<span class="reserved">using</span> <span class="reserved">namespace</span> <span class="identifier">std</span><span class="delimiter">;</span>
+
+
+<span class="reserved">class</span> <span class="identifier">Strings</span><span class="delimiter">{</span>
+<span class="reserved">private</span><span class="delimiter">:</span>
+    <span class="reserved">string</span> <span class="identifier">str</span><span class="number">1</span><span class="delimiter">;</span>
+    <span class="reserved">string</span> <span class="identifier">str</span><span class="number">2</span><span class="delimiter">;</span>
+<span class="reserved">public</span><span class="delimiter">:</span>
+    <span class="function">Strings</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"Enter the first String: "</span><span class="delimiter">;</span> <span class="reserved">cin</span> <span class="op">>></span> <span class="identifier">str</span><span class="number">1</span><span class="delimiter">;</span>
+        <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"Enter the second String: "</span><span class="delimiter">;</span> <span class="reserved">cin</span> <span class="op">>></span> <span class="identifier">str</span><span class="number">2</span><span class="delimiter">;</span>
+    <span class="delimiter">}</span>
+    
+    <span class="reserved">void</span> <span class="function">compareStrings</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">{</span>
+        <span class="reserved">if</span><span class="delimiter">(</span><span class="identifier">str</span><span class="number">1</span> <span class="op">==</span> <span class="identifier">str</span><span class="number">2</span><span class="delimiter">)</span><span class="delimiter">{</span>
+            <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"They're the same"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+        <span class="delimiter">}</span><span class="identifier">else</span><span class="delimiter">{</span>
+            <span class="reserved">cout</span> <span class="op">&lt;&lt;</span> <span class="string">"They're not the same"</span> <span class="op">&lt;&lt;</span> <span class="op">endl</span><span class="delimiter">;</span>
+        <span class="delimiter">}</span>
+    <span class="delimiter">}</span>
+<span class="delimiter">}</span><span class="delimiter">;</span>
+
+<span class="reserved">int</span> <span class="function">main</span><span class="delimiter">(</span><span class="reserved">int</span> <span class="identifier">argc</span><span class="delimiter">,</span> <span class="reserved">const</span> <span class="reserved">char</span> <span class="op">*</span> <span class="identifier">argv</span><span class="delimiter">[</span><span class="delimiter">]</span><span class="delimiter">)</span> <span class="delimiter">{</span>
+    <span class="identifier">Strings</span> <span class="identifier">strings</span><span class="delimiter">;</span>
+    
+    <span class="identifier">strings</span><span class="directive">.</span><span class="function">compareStrings</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">;</span>
+    
+    <span class="reserved">return</span> <span class="number">0</span><span class="delimiter">;</span>
+<span class="delimiter">}</span>
+</pre>
+
+</body>
+
+</html>
